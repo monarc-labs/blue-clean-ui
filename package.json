@@ -1,0 +1,9 @@
+{
+  "name": "blue-clean-ui",
+  "version": "0.0.1",
+  "description": "Blue Clean Web Component Library",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Cosmin Iancu",
+  "license": "Apache-2.0"
+}
