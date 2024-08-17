@@ -4,6 +4,7 @@
     "description": "Blue Clean Web Component Library",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
+    "type": "module",
     "files": [
         "dist"
     ],
@@ -11,7 +12,8 @@
     "scripts": {
         "build": "rollup --config",
         "lint": "npx eslint src/",
-        "format": "npx prettier --write src/"
+        "format": "npx prettier --write src/",
+        "prepare": "husky"
     },
     "author": "Cosmin Iancu",
     "license": "Apache-2.0",
@@ -19,6 +21,8 @@
         "registry": "https://npm.pkg.github.com/mozaic-labs"
     },
     "devDependencies": {
+        "@commitlint/cli": "^19.4.0",
+        "@commitlint/config-conventional": "^19.2.2",
         "@eslint/js": "^9.9.0",
         "@rollup/plugin-commonjs": "^26.0.1",
         "@rollup/plugin-json": "^6.1.0",
@@ -30,6 +34,7 @@
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-react": "^7.35.0",
         "globals": "^15.9.0",
+        "husky": "^9.1.4",
         "prettier": "3.3.3",
         "react": "^18.3.1",
         "rollup": "^4.20.0",
