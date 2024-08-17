@@ -12,6 +12,7 @@ export default [
                 version: "detect",
             },
         },
+        globals: { React: "readonly" },
         languageOptions: { globals: { ...globals.browser, ...globals.node } },
     },
     pluginJs.configs.recommended,
