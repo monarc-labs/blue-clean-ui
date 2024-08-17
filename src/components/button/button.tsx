@@ -1,8 +1,8 @@
 import React from "react";
 
 interface ButtonProps {
-    children: React.ReactNode;
-    className: string;
+    children?: React.ReactNode;
+    className?: string;
     type?: "button" | "submit" | "reset";
 }
 
