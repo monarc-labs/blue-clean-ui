@@ -12,8 +12,9 @@ export default [
                 version: "detect",
             },
         },
-        globals: { React: "readonly" },
-        languageOptions: { globals: { ...globals.browser, ...globals.node } },
+        languageOptions: {
+            globals: { ...globals.browser, ...globals.node, React: "readonly" },
+        },
     },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,

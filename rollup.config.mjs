@@ -1,42 +1,43 @@
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
-import terser from '@rollup/plugin-terser';
-import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
-import packageJson from './package.json' with { type: 'json' };
-
+import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
+import resolve from "@rollup/plugin-node-resolve";
+import terser from "@rollup/plugin-terser";
+import typescript from "@rollup/plugin-typescript";
+import dts from "rollup-plugin-dts";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
+import pkg from "./package.json" with { type: "json" };
 
 export default [
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: packageJson.main,
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
-      postcss(),
-      terser()
-    ],
-  },
-  {
-    input: 'dist/esm/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    plugins: [json(), dts()],
-    external: [/\.css$/],
-  },
+    {
+        input: "src/index.ts",
+        output: [
+            {
+                file: pkg.main,
+                format: "cjs",
+                sourcemap: true,
+            },
+            {
+                file: pkg.module,
+                format: "esm",
+                sourcemap: true,
+            },
+        ],
+        plugins: [
+            peerDepsExternal(),
+            resolve(),
+            commonjs(),
+            typescript({ tsconfig: "./tsconfig.json" }),
+            postcss({
+                plugins: [],
+            }),
+            terser(),
+        ],
+    },
+    {
+        input: "dist/esm/types/index.d.ts",
+        output: [{ file: "dist/index.d.ts", format: "esm" }],
+        plugins: [json(), dts()],
+        external: [/\.css$/],
+    },
 ];
