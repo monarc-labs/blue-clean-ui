@@ -1,12 +1,14 @@
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
-import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import { readFile } from "node:fs/promises";
 import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
-import pkg from "./package.json" with { type: "json" };
+
+const fileUrl = new URL("./package.json", import.meta.url);
+const pkg = JSON.parse(await readFile(fileUrl, "utf8"));
 
 export default [
     {
@@ -31,7 +33,6 @@ export default [
             postcss({
                 plugins: [],
             }),
-            terser(),
         ],
     },
     {
