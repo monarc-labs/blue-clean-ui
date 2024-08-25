@@ -14,7 +14,6 @@
     "scripts": {
         "build": "rollup --config",
         "lint": "npx eslint",
-        "test": "jest",
         "format": "npx prettier --write --ignore-unknown .",
         "prepare": "husky"
     },
@@ -28,10 +27,6 @@
         "registry": "https://npm.pkg.github.com/mozaic-labs"
     },
     "devDependencies": {
-        "@babel/core": "^7.25.2",
-        "@babel/preset-env": "^7.25.3",
-        "@babel/preset-react": "^7.24.7",
-        "@babel/preset-typescript": "^7.24.7",
         "@commitlint/cli": "^19.4.0",
         "@commitlint/config-conventional": "^19.2.2",
         "@eslint/js": "^9.9.0",
@@ -41,18 +36,13 @@
         "@rollup/plugin-terser": "^0.4.4",
         "@rollup/plugin-typescript": "^11.1.6",
         "@testing-library/dom": "^10.4.0",
-        "@testing-library/react": "^16.0.0",
-        "@types/jest": "^29.5.12",
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
-        "babel-jest": "^29.7.0",
         "eslint": "^9.9.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-react": "^7.35.0",
         "globals": "^15.9.0",
         "husky": "^9.1.4",
-        "jest": "^29.7.0",
-        "jest-environment-jsdom": "^29.7.0",
         "lint-staged": "^15.2.9",
         "postcss": "^8.4.41",
         "prettier": "3.3.3",
