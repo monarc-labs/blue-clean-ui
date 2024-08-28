@@ -33,12 +33,13 @@ export default [
             postcss({
                 plugins: [],
             }),
+            json(),
         ],
     },
     {
         input: "dist/esm/types/index.d.ts",
         output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [json(), dts()],
+        plugins: [dts()],
         external: [/\.css$/],
     },
 ];
